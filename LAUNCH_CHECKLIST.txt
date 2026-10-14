@@ -1,0 +1,10 @@
+CREAMY_DESSERT — LAUNCH CHECKLIST
+
+1. Open index.html to preview the website.
+2. Replace the placeholder WhatsApp number and email in index.html.
+3. Replace sample cake photos with Creamy_Dessert's own product photos when available.
+4. Connect the order form to WhatsApp, email, Formspree, or a backend.
+5. Add the real Instagram/TikTok links.
+6. Upload the project to Netlify, Vercel, GitHub Pages, or your preferred hosting provider.
+
+The supplied CEO images are already included in assets/.

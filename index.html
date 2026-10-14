@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Creamy_Dessert — luxury cakes, celebration desserts and handcrafted sweet experiences." />
+  <title>Creamy_Dessert — Crafted to Be Remembered</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#161515;
+      --muted:#77716d;
+      --cream:#f7f2eb;
+      --paper:#fffdf9;
+      --line:rgba(22,21,21,.12);
+      --gold:#b48a55;
+      --gold2:#d4b17b;
+      --rose:#d9b5ae;
+      --shadow:0 25px 70px rgba(20,15,12,.12);
+      --radius:28px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:"DM Sans",sans-serif;color:var(--ink);background:var(--paper);overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    button{font:inherit}
+    .cursor-glow{position:fixed;width:260px;height:260px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(212,177,123,.12),transparent 68%);transform:translate(-50%,-50%);z-index:0}
+    .grain{position:fixed;inset:0;pointer-events:none;opacity:.055;z-index:50;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E")}
+    header{position:fixed;top:0;left:0;right:0;z-index:40;padding:18px 5vw}
+    .nav{max-width:1240px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:13px 17px 13px 22px;border:1px solid rgba(255,255,255,.45);background:rgba(255,253,249,.76);backdrop-filter:blur(18px);border-radius:999px;box-shadow:0 12px 35px rgba(0,0,0,.07)}
+    .logo{font-family:"Playfair Display",serif;font-size:1.15rem;font-weight:700;letter-spacing:.02em}
+    .logo span{color:var(--gold)}
+    .navlinks{display:flex;gap:28px;font-size:.86rem;color:#4f4a47}
+    .navlinks a{transition:.25s}.navlinks a:hover{color:var(--gold)}
+    .navcta{border:0;background:var(--ink);color:white;padding:12px 18px;border-radius:999px;cursor:pointer}
+    .menu{display:none;border:0;background:none;font-size:1.4rem}
+    section{position:relative;z-index:1}
+    .hero{min-height:100vh;padding:150px 5vw 70px;background:
+      radial-gradient(circle at 78% 24%,rgba(217,181,174,.32),transparent 28%),
+      radial-gradient(circle at 13% 72%,rgba(212,177,123,.18),transparent 25%),
+      linear-gradient(135deg,#fbf8f3,#eee7df)}
+    .hero-inner{max-width:1240px;margin:auto;display:grid;grid-template-columns:1.02fr .98fr;gap:60px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.2em;font-size:.69rem;font-weight:700;color:#8c6b48;margin-bottom:24px}
+    .eyebrow:before{content:"";width:35px;height:1px;background:var(--gold)}
+    h1{font-family:"Playfair Display",serif;font-size:clamp(3.8rem,7vw,7.2rem);line-height:.91;letter-spacing:-.055em;max-width:760px}
+    h1 em{font-weight:500;color:#9d7354}
+    .hero-copy{font-size:1.05rem;line-height:1.8;color:#66605b;max-width:590px;margin:30px 0}
+    .actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 21px;border-radius:999px;border:1px solid var(--ink);font-weight:700;font-size:.88rem;cursor:pointer;transition:.3s}
+    .btn.dark{background:var(--ink);color:white}.btn.dark:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,.18)}
+    .btn.light{background:rgba(255,255,255,.45);border-color:var(--line)}.btn.light:hover{background:white}
+    .hero-note{display:flex;gap:26px;margin-top:48px;padding-top:22px;border-top:1px solid var(--line)}
+    .stat strong{font-family:"Playfair Display",serif;font-size:1.55rem;display:block}.stat span{font-size:.72rem;color:var(--muted)}
+    .hero-visual{position:relative;min-height:650px;display:grid;place-items:center}
+    .halo{position:absolute;width:470px;height:470px;border-radius:50%;border:1px solid rgba(180,138,85,.32);box-shadow:inset 0 0 80px rgba(180,138,85,.08)}
+    .halo:after{content:"";position:absolute;inset:34px;border-radius:50%;border:1px dashed rgba(180,138,85,.24)}
+    .cake-orbit{position:absolute;width:590px;height:590px;border:1px solid rgba(22,21,21,.07);border-radius:50%;animation:spin 30s linear infinite}
+    .cake-orbit span{position:absolute;width:9px;height:9px;background:var(--gold);border-radius:50%;top:15%;right:7%;box-shadow:0 0 0 7px rgba(180,138,85,.11)}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .cake-hero{position:relative;width:300px;height:255px;filter:drop-shadow(0 25px 20px rgba(30,20,15,.18))}
+    .tier{position:absolute;left:50%;transform:translateX(-50%);border-radius:18px 18px 24px 24px;background:linear-gradient(100deg,#e8c5b8,#fff0e8 48%,#d7a89d);box-shadow:inset 0 -10px 20px rgba(80,40,25,.12)}
+    .tier:after{content:"";position:absolute;inset:0;border-radius:inherit;background:repeating-linear-gradient(90deg,transparent 0 28px,rgba(255,255,255,.16) 29px 31px)}
+    .tier.one{bottom:22px;width:255px;height:85px}.tier.two{bottom:88px;width:190px;height:73px}.tier.three{bottom:145px;width:130px;height:62px}
+    .icing{position:absolute;left:50%;transform:translateX(-50%);width:255px;height:27px;bottom:85px;border-radius:50%;background:#fff9f3;box-shadow:0 4px 8px rgba(0,0,0,.08)}
+    .candle{position:absolute;bottom:199px;width:5px;height:48px;background:var(--gold);border-radius:8px;left:50%;box-shadow:30px 10px 0 var(--gold),-30px 10px 0 var(--gold)}
+    .flame{position:absolute;width:11px;height:18px;border-radius:50% 50% 50% 0;background:#e4a84e;transform:rotate(-45deg);left:calc(50% - 3px);bottom:242px;box-shadow:0 0 18px #f5c66f}
+    .floating-card{position:absolute;bottom:25px;right:0;background:rgba(255,255,255,.86);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.8);padding:17px 20px;border-radius:18px;box-shadow:var(--shadow);max-width:220px}
+    .floating-card small{color:var(--muted);font-size:.68rem}.floating-card b{display:block;font-family:"Playfair Display",serif;font-size:1.15rem;margin-top:4px}
+    .marquee{overflow:hidden;background:var(--ink);color:#f8efe5;border-block:1px solid rgba(255,255,255,.08);white-space:nowrap}
+    .marquee-track{display:inline-flex;gap:35px;padding:15px 0;animation:marquee 20s linear infinite;font-family:"Playfair Display",serif;font-size:1.1rem}
+    @keyframes marquee{to{transform:translateX(-50%)}}
+    .section{padding:120px 5vw}.container{max-width:1240px;margin:auto}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:48px}
+    .kicker{text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-size:.7rem;font-weight:700;margin-bottom:13px}
+    h2{font-family:"Playfair Display",serif;font-size:clamp(2.7rem,5vw,4.7rem);line-height:1;letter-spacing:-.04em}
+    .section-head p{max-width:440px;color:var(--muted);line-height:1.7}
+    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .product{background:#f5f0e9;border-radius:var(--radius);padding:15px;overflow:hidden;transition:.4s;border:1px solid rgba(22,21,21,.06)}
+    .product:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+    .product-img{height:330px;border-radius:21px;overflow:hidden;position:relative;background:#e9dfd3}
+    .product-img img{width:100%;height:100%;object-fit:cover;transition:.5s}
+    .product:hover .product-img img{transform:scale(1.04)}
+    .tag{position:absolute;top:15px;left:15px;background:rgba(255,253,249,.85);backdrop-filter:blur(10px);border-radius:999px;padding:8px 11px;font-size:.68rem;font-weight:700}
+    .product-info{padding:20px 8px 8px;display:flex;justify-content:space-between;gap:20px}
+    .product-info h3{font-family:"Playfair Display",serif;font-size:1.35rem}.product-info p{font-size:.75rem;color:var(--muted);margin-top:5px}
+    .price{font-weight:800;white-space:nowrap}
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:25px}.filter{border:1px solid var(--line);background:white;padding:9px 14px;border-radius:999px;cursor:pointer;font-size:.75rem}.filter.active{background:var(--ink);color:white}
+    .experience{background:var(--ink);color:white;padding:120px 5vw}
+    .experience-grid{max-width:1240px;margin:auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}
+    .experience h2{max-width:600px}.experience p{color:#bdb5ae;line-height:1.8;max-width:580px;margin:28px 0}
+    .features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:35px}
+    .feature{border:1px solid rgba(255,255,255,.13);border-radius:18px;padding:20px}.feature span{font-size:.7rem;color:var(--gold2);text-transform:uppercase;letter-spacing:.15em}.feature b{display:block;margin-top:10px;font-family:"Playfair Display",serif;font-size:1.15rem}
+    .visual-stack{position:relative;min-height:520px}.visual-main{position:absolute;inset:0 65px 0 0;border-radius:30px;overflow:hidden}.visual-main img{width:100%;height:100%;object-fit:cover;filter:saturate(.88)}
+    .mini-card{position:absolute;right:0;bottom:35px;width:220px;background:#f7f2eb;color:var(--ink);padding:22px;border-radius:22px;box-shadow:var(--shadow)}
+    .mini-card strong{font-family:"Playfair Display",serif;font-size:1.8rem}.mini-card p{color:var(--muted);font-size:.78rem;margin:6px 0 0}
+    .ceo{background:#f3ede6}.ceo-grid{max-width:1240px;margin:auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}
+    .ceo-photo{position:relative;max-width:500px}.ceo-photo img{width:100%;display:block;border-radius:32px;filter:saturate(.9)}.ceo-photo:after{content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--gold);border-radius:32px;z-index:-1}
+    .ceo-copy blockquote{font-family:"Playfair Display",serif;font-size:clamp(2rem,3.4vw,3.6rem);line-height:1.1;letter-spacing:-.035em;margin:20px 0 28px}
+    .ceo-copy p{color:var(--muted);line-height:1.85;max-width:590px}.signature{margin-top:28px;font-family:"Playfair Display",serif;font-size:1.1rem}.signature small{display:block;font-family:"DM Sans",sans-serif;font-size:.68rem;color:var(--gold);letter-spacing:.18em;text-transform:uppercase;margin-top:4px}
+    .process{background:#fff}.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.step{padding:28px;border:1px solid var(--line);border-radius:22px;min-height:220px}.num{font-family:"Playfair Display",serif;font-size:3rem;color:#d2c4b6}.step h3{font-family:"Playfair Display",serif;font-size:1.35rem;margin:18px 0 10px}.step p{font-size:.8rem;line-height:1.7;color:var(--muted)}
+    .cta{padding:100px 5vw;background:linear-gradient(135deg,#d8b2a9,#efe1d4 55%,#c8a676);text-align:center}.cta h2{max-width:850px;margin:auto}.cta p{color:#5c5049;max-width:540px;margin:22px auto 30px;line-height:1.7}
+    footer{background:#121111;color:white;padding:65px 5vw 25px}.footer-grid{max-width:1240px;margin:auto;display:grid;grid-template-columns:1.4fr .7fr .7fr 1fr;gap:50px;padding-bottom:50px}.footer-logo{font-family:"Playfair Display",serif;font-size:1.6rem}.footer-logo span{color:var(--gold2)}footer p,footer a{color:#99918b;font-size:.8rem;line-height:1.8}.footer-title{font-size:.72rem;text-transform:uppercase;letter-spacing:.16em;color:white;margin-bottom:15px}.bottom{max-width:1240px;margin:auto;border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;color:#777;font-size:.7rem}
+    .modal{position:fixed;inset:0;background:rgba(15,13,12,.62);backdrop-filter:blur(10px);z-index:100;display:none;place-items:center;padding:20px}.modal.open{display:grid}.modal-box{background:var(--paper);width:min(560px,100%);border-radius:28px;padding:30px;position:relative;box-shadow:0 35px 100px rgba(0,0,0,.3)}.close{position:absolute;right:18px;top:18px;border:0;background:#eee7df;width:35px;height:35px;border-radius:50%;cursor:pointer}.modal h3{font-family:"Playfair Display",serif;font-size:2rem;margin-bottom:8px}.modal p{color:var(--muted);font-size:.85rem;line-height:1.6}.form{display:grid;gap:12px;margin-top:22px}.form input,.form textarea,.form select{width:100%;border:1px solid var(--line);padding:13px 14px;border-radius:12px;background:white;outline:none}.form textarea{min-height:110px;resize:vertical}
+    @media(max-width:900px){.navlinks{display:none}.menu{display:block}.hero-inner,.experience-grid,.ceo-grid{grid-template-columns:1fr}.hero{padding-top:125px}.hero-visual{min-height:530px}.products{grid-template-columns:repeat(2,1fr)}.process-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.ceo-photo>div{right:10px;bottom:-18px;width:145px;height:110px}.ceo-photo:after{inset:12px -10px -10px 10px}h1{font-size:3.65rem}.section{padding:80px 5vw}.products{grid-template-columns:1fr}.product-img{height:360px}.features{grid-template-columns:1fr}.process-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.bottom{flex-direction:column;gap:8px}.hero-visual{transform:scale(.85);margin:-30px -30px}.section-head{display:block}.section-head p{margin-top:18px}}
+  </style>
+</head>
+<body>
+<div class="grain"></div><div class="cursor-glow" id="glow"></div>
+
+<header>
+  <nav class="nav">
+    <a class="logo" href="#top">Creamy<span>_Dessert</span></a>
+    <div class="navlinks">
+      <a href="#collection">Collection</a><a href="#experience">Experience</a><a href="#story">Our Story</a><a href="#process">How It Works</a>
+    </div>
+    <button class="navcta" onclick="openModal()">Order a Cake</button>
+    <button class="menu" aria-label="Menu">☰</button>
+  </nav>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">Luxury cake atelier · Nigeria</div>
+      <h1>Made to be <em>remembered.</em></h1>
+      <p class="hero-copy">Signature cakes, celebration pieces and refined desserts crafted with detail, warmth and a little bit of theatre. Your occasion deserves more than a cake — it deserves a centrepiece.</p>
+      <div class="actions"><a class="btn dark" href="#collection">Explore the collection ↗</a><button class="btn light" onclick="openModal()">Custom order</button></div>
+      <div class="hero-note">
+        <div class="stat"><strong>01</strong><span>Signature studio</span></div>
+        <div class="stat"><strong>100%</strong><span>Made with care</span></div>
+        <div class="stat"><strong>∞</strong><span>Ways to celebrate</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="cake-orbit"><span></span></div><div class="halo"></div>
+      <div class="cake-hero"><div class="tier one"></div><div class="tier two"></div><div class="tier three"></div><div class="icing"></div><div class="candle"></div><div class="flame"></div></div>
+      <div class="floating-card"><small>THE HOUSE SPECIAL</small><b>Velvet Bloom</b><small>Vanilla · strawberry · cream</small></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee"><div class="marquee-track">CREAMY_DESSERT ✦ CAKES WITH CHARACTER ✦ BAKED FOR YOUR BIG MOMENTS ✦ MADE IN SMALL BATCHES ✦ CREAMY_DESSERT ✦ CAKES WITH CHARACTER ✦ BAKED FOR YOUR BIG MOMENTS ✦ MADE IN SMALL BATCHES ✦</div></div>
+
+<section class="section" id="collection">
+  <div class="container">
+    <div class="section-head">
+      <div><div class="kicker">The collection</div><h2>Choose your<br>sweet moment.</h2></div>
+      <p>From intimate birthdays to grand celebrations, discover a curated selection designed to look beautiful on the table and taste even better.</p>
+    </div>
+    <div class="filters">
+      <button class="filter active" data-filter="all">All</button><button class="filter" data-filter="birthday">Birthday</button><button class="filter" data-filter="wedding">Wedding</button><button class="filter" data-filter="signature">Signature</button>
+    </div>
+    <div class="products">
+      <article class="product" data-cat="signature">
+        <div class="product-img"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85" alt="Elegant chocolate celebration cake"><span class="tag">Signature</span></div>
+        <div class="product-info"><div><h3>Midnight Truffle</h3><p>Dark chocolate · ganache · gold leaf</p></div><div class="price">₦45k+</div></div>
+      </article>
+      <article class="product" data-cat="birthday">
+        <div class="product-img"><img src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?auto=format&fit=crop&w=1000&q=85" alt="Pink layered birthday cake"><span class="tag">Birthday</span></div>
+        <div class="product-info"><div><h3>Blush Celebration</h3><p>Vanilla · strawberry · buttercream</p></div><div class="price">₦38k+</div></div>
+      </article>
+      <article class="product" data-cat="wedding">
+        <div class="product-img"><img src="https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?auto=format&fit=crop&w=1000&q=85" alt="Elegant wedding cake"><span class="tag">Wedding</span></div>
+        <div class="product-info"><div><h3>Ivory Muse</h3><p>Vanilla bean · silk buttercream</p></div><div class="price">₦95k+</div></div>
+      </article>
+      <article class="product" data-cat="signature">
+        <div class="product-img"><img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=1000&q=85" alt="Luxury dessert cake"><span class="tag">Signature</span></div>
+        <div class="product-info"><div><h3>Caramel Cloud</h3><p>Salted caramel · vanilla · pecan</p></div><div class="price">₦42k+</div></div>
+      </article>
+      <article class="product" data-cat="birthday">
+        <div class="product-img"><img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=1000&q=85" alt="Decorated birthday cake"><span class="tag">Birthday</span></div>
+        <div class="product-info"><div><h3>Rose Reverie</h3><p>Red velvet · cream cheese · berries</p></div><div class="price">₦40k+</div></div>
+      </article>
+      <article class="product" data-cat="wedding">
+        <div class="product-img"><img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1000&q=85" alt="White celebration cake"><span class="tag">Wedding</span></div>
+        <div class="product-info"><div><h3>Maison Blanc</h3><p>Almond · vanilla · white chocolate</p></div><div class="price">₦110k+</div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="experience" id="experience">
+  <div class="experience-grid">
+    <div>
+      <div class="kicker">The Creamy experience</div><h2>Every detail gets its moment.</h2>
+      <p>We approach cake like design: balance, texture, colour and emotion. Tell us what you are celebrating and we turn the feeling into a piece made especially for the room, the photographs and the people around you.</p>
+      <a class="btn" style="border-color:#6e655e;color:white" href="#process">See how we create</a>
+      <div class="features"><div class="feature"><span>01 · Detail</span><b>Hand-finished</b></div><div class="feature"><span>02 · Taste</span><b>Premium flavours</b></div><div class="feature"><span>03 · Design</span><b>Made for your theme</b></div><div class="feature"><span>04 · Moment</span><b>Delivery-ready</b></div></div>
+    </div>
+    <div class="visual-stack"><div class="visual-main"><img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=1200&q=85" alt="Creamy dessert assortment"></div><div class="mini-card"><strong>Small details.</strong><p>Big memories. That is the Creamy_Dessert promise.</p></div></div>
+  </div>
+</section>
+
+<section class="section ceo" id="story">
+  <div class="ceo-grid">
+    <div class="ceo-photo">
+      <img src="assets/ceo-portrait.webp" alt="CEO and founder of Creamy_Dessert">
+      <div style="position:absolute;right:-28px;bottom:-28px;width:190px;height:145px;border:8px solid #f3ede6;border-radius:22px;overflow:hidden;box-shadow:0 18px 45px rgba(0,0,0,.16);background:#fff">
+        <img src="assets/ceo-signature.webp" alt="Creamy_Dessert founder portrait" style="width:100%;height:100%;object-fit:cover">
+      </div>
+    </div>
+    <div class="ceo-copy">
+      <div class="kicker">Meet the woman behind the craft</div>
+      <blockquote>“I wanted every Creamy_Dessert creation to feel like an occasion before the first bite.”</blockquote>
+      <p>Built from a love for beautiful details and unforgettable desserts, Creamy_Dessert brings together thoughtful design, confident flavours and a warm personal touch. Every order is treated as a story worth telling.</p>
+      <div class="signature">Creamy_Dessert <small>Founder & Creative Director</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="section process" id="process">
+  <div class="container">
+    <div class="section-head"><div><div class="kicker">From idea to table</div><h2>Your cake,<br>beautifully handled.</h2></div><p>A simple process for a very special result. Customise the flavour, style and details, then leave the rest to us.</p></div>
+    <div class="process-grid">
+      <div class="step"><div class="num">01</div><h3>Tell us the story</h3><p>Share the occasion, date, number of guests, mood and any inspiration you have.</p></div>
+      <div class="step"><div class="num">02</div><h3>Design the piece</h3><p>We shape the colours, tiers, textures and finishing details around your vision.</p></div>
+      <div class="step"><div class="num">03</div><h3>We bake & finish</h3><p>Your cake is made with care, then finished by hand before it leaves the studio.</p></div>
+      <div class="step"><div class="num">04</div><h3>Make the moment</h3><p>Collect or arrange delivery, set the cake down, and let the celebration begin.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="kicker">Ready when you are</div><h2>Make your next celebration taste as good as it looks.</h2>
+  <p>Tell us what you are dreaming of and let Creamy_Dessert turn it into a centrepiece.</p>
+  <button class="btn dark" onclick="openModal()">Start an order ↗</button>
+</section>
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div><div class="footer-logo">Creamy<span>_Dessert</span></div><p style="margin-top:15px;max-width:300px">Luxury cakes and desserts crafted for birthdays, weddings, milestones and the moments you never want to forget.</p></div>
+    <div><div class="footer-title">Explore</div><p><a href="#collection">Collection</a></p><p><a href="#experience">Experience</a></p><p><a href="#story">Our Story</a></p></div>
+    <div><div class="footer-title">Social</div><p><a href="#">Instagram</a></p><p><a href="#">TikTok</a></p><p><a href="#">Facebook</a></p></div>
+    <div><div class="footer-title">Orders</div><p>Custom cakes & celebration desserts</p><p style="margin-top:8px">WhatsApp: +234 XXX XXX XXXX</p><p>Email: hello@creamydessert.com</p></div>
+  </div>
+  <div class="bottom"><span>© 2026 Creamy_Dessert. Crafted with intention.</span><span>Luxury in every layer.</span></div>
+</footer>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal()">×</button>
+    <div class="kicker">Custom order</div><h3>Let's create your cake.</h3><p>Send the basics below. Connect this form to WhatsApp, email, or your preferred order system when you're ready to go live.</p>
+    <form class="form" onsubmit="submitOrder(event)">
+      <input required placeholder="Your name" />
+      <input required type="tel" placeholder="Phone / WhatsApp number" />
+      <select><option>What are you ordering?</option><option>Birthday cake</option><option>Wedding cake</option><option>Signature cake</option><option>Other dessert</option></select>
+      <input type="date" />
+      <textarea placeholder="Tell us about the design, flavour, size and occasion..."></textarea>
+      <button class="btn dark" type="submit">Send enquiry ↗</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  const modal=document.getElementById('modal');
+  function openModal(){modal.classList.add('open');document.body.style.overflow='hidden'}
+  function closeModal(){modal.classList.remove('open');document.body.style.overflow=''}
+  function submitOrder(e){e.preventDefault(); alert("Thank you! Your enquiry is ready to connect to Creamy_Dessert's order channel."); closeModal();}
+  document.querySelectorAll('.filter').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const f=btn.dataset.filter;
+      document.querySelectorAll('.product').forEach(card=>{
+        card.style.display=(f==='all'||card.dataset.cat===f)?'block':'none';
+      });
+    });
+  });
+  const glow=document.getElementById('glow');
+  window.addEventListener('pointermove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
+</script>
+</body>
+</html>
